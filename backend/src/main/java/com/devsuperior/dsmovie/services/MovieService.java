@@ -1,7 +1,5 @@
 package com.devsuperior.dsmovie.services;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +23,14 @@ public class MovieService {
 		Page<MovieDTO> page = result.map(x -> new MovieDTO(x));
 		return page;
 	}
+	
+	
+	@Transactional
+	public MovieDTO findById (Long id) {
+		Movie result = repository.findById(id).get();
+		MovieDTO dto = new MovieDTO(result);
+		return dto;
+	}
+
 
 }
