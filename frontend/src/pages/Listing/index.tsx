@@ -1,7 +1,21 @@
 import Pagination from "components/Pagination";
 import MovieCard from "components/MovieCard";
+import axios from "axios";
+import { BASE_URL } from "utils/requests";
 
 function Listing() {
+
+    //froma errada
+    //axios.defaults.headers.get['Content-Type'] ='application/json;charset=utf-8';
+    //axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
+    axios.get(`${BASE_URL}/movies`).then(
+        response => {
+
+            console.log(response.data);
+        }
+    );
+
 
     return (
 
